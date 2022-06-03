@@ -28,3 +28,17 @@ class WordFinder:
         """Return random word(s)"""
 
         return random.choice(self.words)
+
+
+class SpecialWordFinder(WordFinder):
+
+    """Ensures only returns words, not spaces/comments
+    >>> swf = SpecialWordFinder("special.txt")
+    3 words read
+
+    >>> swf.random() in ['kale', 'parsnips', 'apple', 'mango']
+    True
+    """
+
+    def parse(self, file):
+        return [word.strip() for word in file if word.strip() and not word.startswith('#')]

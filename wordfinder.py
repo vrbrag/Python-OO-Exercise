@@ -6,7 +6,12 @@ class WordFinder:
     ...
 
     def __init__(self, path):
-        """Read dictionary """
+        """Read dictionary 
+        >>> wf = WordFinder('simple.txt')
+        3 words read
+        >>> wf.random() in ["cat", "dog", "chicken"]
+        True
+        """
 
         file = open(path)
         self.words = self.parse(file)
